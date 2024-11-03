@@ -34,5 +34,12 @@ namespace Server.Controllers
             _recipeService.AddRecipe(recipe);
             return Created();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoveRecipe([FromRoute] int id)
+        {
+            _recipeService.RemoveRecipe(id);
+            return Ok();
+        }
     }
 }
