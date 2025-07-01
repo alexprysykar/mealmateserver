@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
 using Server.Services;
 
 namespace Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("recipes")]
     [ApiController]
     public class RecipesController : ControllerBase
     {
@@ -17,6 +18,7 @@ namespace Server.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
         public IActionResult GetRecipes()
         {
             var recipes = _recipeService.GetAll();
